@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 
 class CreateUserTypesTable extends Migration
 {
@@ -15,9 +14,11 @@ class CreateUserTypesTable extends Migration
     {
         Schema::create('user_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
             $table->timestamps();
-        });
+            $table->string('user_type')->nullable();
+            $table->string('status');
+            $table->index(['user_type']);
+            });
     }
 
     /**
@@ -27,6 +28,6 @@ class CreateUserTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_types');
+        Schema::drop('user_types');
     }
 }
