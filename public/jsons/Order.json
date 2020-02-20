@@ -1,0 +1,123 @@
+{
+    "fields": [
+        {
+            "name": "order_type",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "company",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "work_order_no",
+            "type": "string"
+        },
+        {
+            "name": "weight",
+            "type": "integer"
+        },
+        {
+            "name": "kva",
+            "type": "string"
+        },
+        {
+            "name": "expected_delivery_date",
+            "type": "date"
+        },
+        {
+            "name": "po_date",
+            "type": "date"
+        },
+        {
+            "name": "po_no",
+            "type": "number"
+        },
+        {
+            "name": "rate",
+            "type": "number"
+        },
+        {
+            "name": "status",
+            "type": "select",
+            "options": {
+                "1": "New",
+                "3": "On Hold",
+                "4": "Cancelled",
+                "5": "Completed",
+                "0": "Deleted"
+            }
+     
+      },
+      {
+          "name": "user_id",
+          "type": "integer#unsigned"
+      }
+  ],
+  "foreign_keys": [
+    {
+        "column": "user_id",
+        "references": "id",
+        "on": "users",
+        "onDelete": "cascade"
+    },
+    {
+        "column": "order_type",
+        "references": "id",
+        "on": "order_types",
+        "onDelete": "cascade"
+    },
+    {
+        "column": "company",
+        "references": "id",
+        "on": "companies",
+        "onDelete": "cascade"
+    },
+    {
+        "column": "channel",
+        "references": "id",
+        "on": "channels",
+        "onDelete": "cascade"
+    },
+    {
+        "column": "status",
+        "references": "id",
+        "on": "order_statuses",
+        "onDelete": "cascade"
+    }
+      
+  ],
+  "relationships": [
+    {
+        "name": "user",
+        "type": "belongsTo",
+        "class": "App\\User"
+    },
+    {
+        "name": "order_types",
+        "type": "belongsTo",
+        "class": "App\\OrderType"
+    },
+    {
+        "name": "company",
+        "type": "belongsTo",
+        "class": "App\\Company"
+    },
+    {
+        "name": "channel",
+        "type": "belongsTo",
+        "class": "App\\Channel"
+    },
+    {
+        "name": "status",
+        "type": "belongsTo",
+        "class": "App\\OrderStatus"
+    }
+    
+  ],
+  "validations": [
+      {
+          "field": "title",
+          "rules": "required|max:10"
+      }
+  ]
+}

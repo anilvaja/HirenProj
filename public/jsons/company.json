@@ -1,0 +1,88 @@
+{
+    "fields": [
+        {
+            "name": "title",
+            "type": "string"
+        },
+        {
+            "name": "details",
+            "type": "text"
+        },
+        {
+            "name": "address",
+            "type": "text"
+        },
+        {
+            "name": "email",
+            "type": "string"
+        },
+        {
+            "name": "contact_no",
+            "type": "string"
+        },
+        {
+            "name": "alt_contact_no",
+            "type": "string"
+        },
+        {
+            "name": "company_code",
+            "type": "string"
+        },
+        {
+            "name": "gst_no",
+            "type": "string"
+        },
+        {
+            "name": "terms_and_condition",
+            "type": "text"
+        },
+        {
+            "name": "status",
+            "type": "select",
+            "options": {
+                "1": "Active",
+                "2": "Inactive",
+                "0": "Deleted"
+            }
+     
+      }
+    ],
+    "validations": [
+        {
+            "field": "title",
+            "rules": "required|max:50"
+        },
+        {
+            "field": "details",
+            "rules": "required|max:1000"
+        },
+        {
+            "field": "address",
+            "rules": "required|max:1000"
+        },
+        {
+            "field": "email",
+            "rules": "required|email|max:100"
+        },
+        {
+            "field": "contact_no",
+            "rules": "required|max:12"
+        },
+        {
+            "field": "alt_contact_no",
+            "rules": "required|max:12"
+        },
+        {
+            "field": "company_code",
+            "rules": "required|max:50"
+        },
+        {
+            "field": "gst_no",
+            "rules": "required|max:50"
+        },
+        {
+            "field": "terms_and_condition",
+            "rules": "required|max:500"
+        }
+    ]
+}
